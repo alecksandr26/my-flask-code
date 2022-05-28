@@ -68,5 +68,7 @@ Inside of our html, we need to use the jinja2 syntax like this, if we want to pr
     </body>
 </html>
 ```
+Te result is this.
+![alt text](./ip.png)
 
 
