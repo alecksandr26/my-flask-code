@@ -9,8 +9,7 @@ After run this another command
 "flask run"
 
 """
-
-from flask import Flask
+from flask import Flask, request
 
 
 app = Flask(__name__)
@@ -18,7 +17,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return 'Hello my mennnn....'
+    # Get the ip address
+    user_ip = request.remote_addr
+    
+    return f'Your ip is {user_ip}'
 
 
 
