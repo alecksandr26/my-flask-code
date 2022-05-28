@@ -34,3 +34,34 @@ def hello():
     
     return f'Your ip is {user_ip}'
 ```
+
+## Response
+We can manipulate the response for example we can redirect the users, for example here if the user try to load the `/` root path will be redirect to the `/ip`, another important thing we can catch and save the ip address in the `/` route.
+```
+from flask import Flask, request, make_response, redirect
+
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def index():
+    user_ip = request.remote_addr
+    
+    # make a resopnse and fetch data from the '/hello'
+    response = make_response(redirect('/ip'))
+
+    # Create a cookie to save the user_ip
+    response.set_cookie('user_ip', user_ip)
+
+    return response
+    
+
+# So we end here
+@app.route('/ip')
+def hello():
+    # Get the ip address from the cooki that we just created
+    user_ip = request.cookies.get('user_ip')
+    
+    return f'Your ip is {user_ip}'
+```
