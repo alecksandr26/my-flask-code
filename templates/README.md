@@ -183,7 +183,7 @@ def index():
     # Rendering htmls, now expand all the variables with "**"
     return render_template('hello.html', url_for = url_for, **contex)
 ```
-An interesting thing here are the double `**` with this we can export all the fields from the contex in a way to avoid to fetch the data insdie of the dictionary.
+An interesting thing here are the double `**` with this we can export all the fields from the contex in a way to avoid to fetch the data insdie of the dictionary, this is fantasting because now our html code will continue valid.
 
 
 
