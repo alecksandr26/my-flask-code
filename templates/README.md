@@ -38,5 +38,5 @@ app = Flask(__name__)
 
 @app.route('/')
 def root():
-    return render_template('./templates/hello.html')
+    return render_template('hello.html')
 ```
