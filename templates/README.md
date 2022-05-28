@@ -4,5 +4,39 @@ With flask we can return html files, json data and other things so lets try to d
 `$ mkdir templates`
 
 And inside of our python code we are going to import this function `render_template`, like this.
+```
+from flask import Flask, render_template
 
 
+app = Flask(__name__)
+
+
+@app.route('/')
+def root():
+    return 'Hello'
+
+```
+So now instead of just return a simple `'hello'` we are going to create an html file inside of our templates directoy, in my case this is my html file.
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h1>Hello There</h1>
+    </body>
+</html>
+```
+Now inside of our python code just change that return and use the function `render_template`.
+```
+from flask import Flask, render_template
+
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def root():
+    return render_template('./templates/hello.html')
+```
