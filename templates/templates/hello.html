@@ -6,6 +6,12 @@
     <body>
         {% if user_ip %}
         <h1>Hello There, this is your ip {{ user_ip }}</h1>
+        <p>Todos:</p>
+        <ul>
+            {% for todo in todos %}
+            <li>{{ todo }}</li>
+            {% endfor %}
+        </ul>
         {% else %}
         <a href="{{ url_for('get_ip') }}">Get your ip</a>
         {% endif %}

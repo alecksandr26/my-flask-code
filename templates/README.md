@@ -183,7 +183,29 @@ def index():
     # Rendering htmls, now expand all the variables with "**"
     return render_template('hello.html', url_for = url_for, **contex)
 ```
-An interesting thing here are the double `**` with this we can export all the fields from the contex in a way to avoid to fetch the data insdie of the dictionary, this is fantasting because now our html code will continue valid.
+An interesting thing here are the double `**` with this we can export all the fields from the contex in a way to avoid to fetch the data insdie of the dictionary, this is fantasting because now our html code will continue valid, so now inside of our html we are going to do a for loop like this.
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        {% if user_ip %}
+        <h1>Hello There, this is your ip {{ user_ip }}</h1>
+        <p>Todos:</p>
+        <ul>
+            {% for todo in todos %}
+            <li>{{ todo }}</li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <a href="{{ url_for('get_ip') }}">Get your ip</a>
+        {% endif %}
+    </body>
+</html>
+```
+
 
 
 
