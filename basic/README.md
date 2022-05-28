@@ -11,3 +11,5 @@ After that with the flask command we can run the app.
 To debug with flask, we need to create another shell variable called  `FLASK_DEBUG` and you need to set this variable with "1".
 
 `export FLASK_DEBUG=1`
+
+With this variable, we can make a change inside of the file and that change will be automatically applied to the server.
