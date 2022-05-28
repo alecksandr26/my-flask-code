@@ -72,4 +72,8 @@ Te result is this.
 
 ![alt text](./ip.png)
 
+## Control Structures in Jinja2
+As I mention before we can run python code inside of the html with the power of Jinja2, so lets how we can run some python code.
+
+
 
