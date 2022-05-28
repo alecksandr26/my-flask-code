@@ -40,3 +40,33 @@ app = Flask(__name__)
 def root():
     return render_template('hello.html')
 ```
+Now flask render this html files in a special way, because uses something called "jinj2" which is able to render and mix some python code inside of a html thats sounds good no ?, so lets see if we can import the ipv address user inside of the html, firstly we need to add another argument to the `render_template` function, like this.
+```
+from flask import Flask, render_template, request
+
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def root():
+    # Get the ip address
+    user_ip = request.remote_addr
+    
+    # Rendering htmls
+    return render_template('hello.html', user_ip = user_ip)
+```
+Inside of our html, we need to use the jinja2 syntax like this, if we want to print some variable we use `{{ my var }}`.
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <h1>Hello There, this is your ip {{ user_ip }}</h1>
+    </body>
+</html>
+```
+
+
