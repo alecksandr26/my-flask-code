@@ -112,11 +112,14 @@ Now for example if we try to do the `/` will try to get the ip address from a co
         {% if user_ip %}
         <h1>Hello There, this is your ip {{ user_ip }}</h1>
         {% else %}
-        <a href="{{ url_for('index') }}">Get your ip</a>
+        <a href="{{ url_for('get_ip') }}">Get your ip</a>
+        {% endif %}
     </body>
 </html>
+
+
 ```
-An important thing here is the `url_for` function because is a function that flask has that we can use to redirect the user if he press on that link tag, so lets pass that function as argument inside of `render_template` function, like this.
+An important thing here is the `url_for` function because is a function that flask has that we can use to redirect the user if he press on that link tag, so lets pass that function as argument inside of `render_template` function, like this, another important thing we need to pass the name of the route `url_for('function_name)`.
 ```
 from flask import Flask, render_template, request, make_response, redirect, url_for
 
@@ -130,7 +133,7 @@ def get_ip():
 
     # Set the ip inside of a cookie making a response
     response = make_response(redirect('/'))
-    response.set_cookie('user_ip', user_ip)
+    response.set_cookie('user_ip', user_ip) 
 
     return response
 

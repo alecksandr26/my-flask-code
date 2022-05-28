@@ -4,6 +4,10 @@
         
     </head>
     <body>
+        {% if user_ip %}
         <h1>Hello There, this is your ip {{ user_ip }}</h1>
+        {% else %}
+        <a href="{{ url_for('get_ip') }}">Get your ip</a>
+        {% endif %}
     </body>
 </html>
