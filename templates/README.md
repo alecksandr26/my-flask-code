@@ -205,6 +205,10 @@ An interesting thing here are the double `**` with this we can export all the fi
     </body>
 </html>
 ```
+## To create blocks of html
+we can create like componentes with the power of jinja2, these components are blocks of html code that we can get and use it multiple times.
+
+
 
 
 
