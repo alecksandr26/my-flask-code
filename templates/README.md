@@ -206,8 +206,34 @@ An interesting thing here are the double `**` with this we can export all the fi
 </html>
 ```
 ## To create blocks of html
-we can create like componentes with the power of jinja2, these components are blocks of html code that we can get and use it multiple times.
+we can create like componentes with the power of jinja2, these components are blocks of html code that we can get and use it multiple times, this thing I create another flask file like this.
+```
+"""
+This is an exmple of how can do inheritance with the templates
+"""
 
+
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+
+todos = ["Clean my room", "Write the subroutine", "Fix the bug"]
+
+
+@app.route('/')
+def root():
+    
+    # I pass the todos
+    return render_template("base.html", todos = todos)
+```
+And this is the base.html file basically what we are going to do is to extedn this base.html file with more code of html, so firstly I create another .html file called todos.html, and basically this file contains this.
+```
+<!-- Here I define that this code will be putted into the base.html -->
+
+{% extends 'base.html' %}
+```
+With this now we can add a block inside of the base.html and be replaced by our extra code from the todos.html, so inside of my base I have something like this.
 
 
 
