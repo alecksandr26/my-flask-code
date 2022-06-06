@@ -234,8 +234,35 @@ And this is the base.html file basically what we are going to do is to extedn th
 {% extends 'base.html' %}
 ```
 With this now we can add a block inside of the base.html and be replaced by our extra code from the todos.html, so inside of my base I have something like this.
+```
+<!-- Here I define that this code will be putted into the base.html -->
 
+{% extends 'base.html' %}
 
+{% block todos %}
+<ul>
+    {% for todo in todos %}
+    <li>
+        {{ todo }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+```
+And with this block of html code declared, so we can import this code tot he base.html, like this.
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>inheritance</title>
+    </head>
+    <body>
+        <h1>My Todos: </h1>
 
-
-
+        <!-- load the todos -->
+        {% block todos %}
+        {% endblock %}
+    </body>
+</html>
+```
