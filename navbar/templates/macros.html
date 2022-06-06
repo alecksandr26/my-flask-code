@@ -1,0 +1,11 @@
+
+{% macro render_nav_bar(links) %}
+<nav>
+    <ul>
+        {% for l in links %}
+        <li><a href="{{ url_for(l) }}">{{ l }}</a></li>
+        {% endfor %}
+    </ul>
+</nav>
+{% endmacro %}
+
