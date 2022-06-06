@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>inheritance</title>
+    </head>
+    <body>
+        <h1>My Todos: </h1>
+        <!-- I do a little bit of control structure -->
+        <ul>
+            {% for t in todos %}
+            {% block todo %}
+            {% endblock %}
+            {% endfor %}
+        </ul>
+    </body>
+</html>
+

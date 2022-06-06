@@ -13,6 +13,7 @@
             {% endfor %}
         </ul>
         {% else %}
+        <!-- The get_ip is function from the flask app.py  -->
         <a href="{{ url_for('get_ip') }}">Get your ip</a>
         {% endif %}
     </body>
