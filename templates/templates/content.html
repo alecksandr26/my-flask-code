@@ -1,0 +1,27 @@
+<!-- Here I define that this code will be putted into the base.html -->
+
+{% extends 'base.html' %}
+
+<!-- Here I import my macros files -->
+{% import 'macro.html' as macros %}
+
+<!-- Title block -->
+{% block title %}
+    {{ macros.render_title(title) }}
+{% endblock %}
+
+
+<!-- Here I declare a macro function sometimes we create a file called macro.html -->
+{% macro render_todo(todo) %}
+    <li>Description {{ todo }}</li>
+{% endmacro %}
+
+
+{% block body %}
+    <h1>My Todos: </h1>
+    <ul>
+        {% for todo in todos %}
+            {{ render_todo(todo) }}
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -15,5 +15,5 @@ todos = ["Clean my room", "Write the subroutine", "Fix the bug"]
 def root():
     
     # I pass the todos
-    return render_template("base.html", todos = todos)
+    return render_template("content.html", todos = todos, title = "Root")
 
