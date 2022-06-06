@@ -47,11 +47,10 @@ To put css inside of a flask project it is recommend to create a folder inside o
 And yeah just like that we can add style to our html files, and this is my css file.
 ```
 * {
-    block-size: 0px;
     margin: 0px;
 }
 
 img {
-    max-width: 30px;
+    max-width: 200px;
 }
 ```
