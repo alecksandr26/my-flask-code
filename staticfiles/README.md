@@ -28,3 +28,30 @@ app = Flask(__name__)
 def index():
     return render_template("base.html", url_for = url_for)
 ```
+## Put css
+To put css inside of a flask project it is recommend to create a folder inside of the `static` folder a folder witht the name `css`, so lets create `css` file, so in simple words to load a `css` file is very easy, go to your `base.html`, and just add a link inside of the head tag of your html file, like this.
+```
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Static files</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"></link>
+    </head>
+    <body>
+        <h1>Static Files:</h1>
+        <img src="{{ url_for('static', filename='img/Alecksandr.jpg') }}"  alt="wtf" />
+    </body>
+</html>
+```
+And yeah just like that we can add style to our html files, and this is my css file.
+```
+* {
+    block-size: 0px;
+    margin: 0px;
+}
+
+img {
+    max-width: 30px;
+}
+```
