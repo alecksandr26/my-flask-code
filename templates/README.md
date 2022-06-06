@@ -206,7 +206,7 @@ An interesting thing here are the double `**` with this we can export all the fi
 </html>
 ```
 ## To create blocks of html
-we can create like componentes with the power of jinja2, these components are blocks of html code that we can get and use it multiple times, this thing I create another flask file like this.
+we can create like componentes with the power of jinja2, these components can be used multiple times basically we need to create a base.html file where we allocate everything basically we can plot all the blocks and we need to create a child template this template will be an extesion from the main .html file.
 ```
 """
 This is an exmple of how can do inheritance with the templates
@@ -225,7 +225,7 @@ todos = ["Clean my room", "Write the subroutine", "Fix the bug"]
 def root():
     
     # I pass the todos
-    return render_template("base.html", todos = todos)
+    return render_template("content.html", todos = todos)
 ```
 And this is the base.html file basically what we are going to do is to extedn this base.html file with more code of html, so firstly I create another .html file called todos.html, and basically this file contains this.
 ```
@@ -239,29 +239,28 @@ With this now we can add a block inside of the base.html and be replaced by our 
 
 {% extends 'base.html' %}
 
-{% block todos %}
-<ul>
-    {% for todo in todos %}
-    <li>
-        {{ todo }}
-    </li>
-    {% endfor %}
-</ul>
+{% block body %}
+    <h1>My Todos: </h1>
+    <ul>
+        {% for todo in todos %}
+            <li>{{ todo }}</li>
+        {% endfor %}
+    </ul>
 {% endblock %}
+
 ```
 And with this block of html code declared, so we can import this code tot he base.html, like this.
 ```
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>inheritance</title>
+        <title>Inheritance</title>
     </head>
     <body>
-        <h1>My Todos: </h1>
-
         <!-- load the todos -->
-        {% block todos %}
+        {% block body %}
         {% endblock %}
     </body>
 </html>
