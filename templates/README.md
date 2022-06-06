@@ -265,3 +265,25 @@ And with this block of html code declared, so we can import this code tot he bas
     </body>
 </html>
 ```
+So, now we can repeat multiple times this blocks of code, remember we need to render the child template, but now what happens when we want to create the a special component, for example we want to add another extra thing to each todo we can use something called `macro` in jinja2, it is something like this.
+```
+<!-- Here I define that this code will be putted into the base.html -->
+
+{% extends 'base.html' %}
+
+
+<!-- Here I declare a macro function -->
+{% macro render_todo(todo) %}
+    <li>Description {{ todo }}</li>
+{% endmacro %}
+
+
+{% block body %}
+    <h1>My Todos: </h1>
+    <ul>
+        {% for todo in todos %}
+            {{ render_todo(todo) }}
+        {% endfor %}
+    </ul>
+{% endblock %}
+```
