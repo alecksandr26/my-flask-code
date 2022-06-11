@@ -9,4 +9,3 @@ app = Flask(__name__)
 def index():
     return render_template("base.html", url_for = url_for)
 
-
