@@ -19,3 +19,15 @@ def index():
     return render_template('home.html')
 
 ```
+Where we have two routes right?, `/` and `/hello` And this is the html file `home.html`.
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error pages</title>
+    </head>
+    <body>
+        <p>Simple web page that I created to test the error pages</p>
+    </body>
+</html>
+```
