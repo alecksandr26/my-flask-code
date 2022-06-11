@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # Just like this we can deal with the different type of errors
 @app.errorhandler(404)
-def error_404():
+def error_404(error):
     return render_template('pagenotfound.html')
 
 
