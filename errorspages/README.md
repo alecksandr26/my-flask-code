@@ -31,3 +31,4 @@ Where we have two routes right?, `/` and `/hello` And this is the html file `hom
     </body>
 </html>
 ```
+Then flask has a funcion to deal with those cases, the function is `app.errorhandler`, and it receives the type of error which we want to deal, like this.
