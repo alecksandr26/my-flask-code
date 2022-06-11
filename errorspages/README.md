@@ -43,7 +43,7 @@ app = Flask(__name__)
 
 # Just like this we can deal with the different type of errors
 @app.errorhandler(404)
-def error_404():
+def error_404(error):
     return render_template('pagenotfound.html')
 
 
@@ -55,5 +55,17 @@ def hello():
 @app.route('/')
 def index():
     return render_template('home.html')
-
 ```
+Now the html `pagenotfound.html` is this.
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ERROR 404</title>
+    </head>
+    <body>
+        <p>Error that page doesn't exist</p>
+    </body>
+</html>
+```
+With this we can render a lot of errors that our server maybe could have in some bad requests.
