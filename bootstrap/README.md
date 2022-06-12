@@ -15,3 +15,20 @@ bootstrap = Bootstrap(app)
 def index():
     return render_template('home.html')
 ```
+With this now we can load the basic modules of bootstrap inside of our base html, how ?, too easy we only need to import the boostrap base html like this.
+```
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+{{ super() }}
+<title>Bootstrap extesion</title>
+
+{% endblock %}
+
+{% block body %}
+
+<p>Testing the bootstrap</p>
+
+{% endblock %}
+
+```
