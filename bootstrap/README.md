@@ -30,5 +30,5 @@ With this now we can load the basic modules of bootstrap inside of our base html
 <p>Testing the bootstrap</p>
 
 {% endblock %}
-
 ```
+Like this this is how we can include the base bootstrap.
