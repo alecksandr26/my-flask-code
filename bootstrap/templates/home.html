@@ -1,9 +1,13 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Testing Bootstrap</title>
-    </head>
-    <body>
-        <p>Testing bootstrap</p>
-    </body>
-</html>
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+{{ super() }}
+<title>Bootstrap extesion</title>
+
+{% endblock %}
+
+{% block body %}
+
+<p>Testing the bootstrap</p>
+
+{% endblock %}
