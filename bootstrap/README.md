@@ -33,4 +33,6 @@ With this now we can load the basic modules of bootstrap inside of our base html
 ```
 Like this this is how we can include the base bootstrap file, you are going to notice that bootstrap is installed when you see this type of letters.
 ![image](https://user-images.githubusercontent.com/66882463/173209706-e10de857-c8fc-49d7-9610-9478a3353703.png)
+So lets see we can import some components of bootstrap so this is the link of the components.
+[components](https://getbootstrap.com/docs/3.3/components/)
 
