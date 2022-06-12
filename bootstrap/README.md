@@ -56,3 +56,5 @@ So for example I'm going to copy this component and paste inside of my html file
 
 {% endblock %}
 ```
+As you can see basically it creates a netbar so you can ass like this very easy all the bootstrap components that you want.
+![image](https://user-images.githubusercontent.com/66882463/173211180-7f18de84-0fe0-4b8d-9d07-1098f925fb6e.png)
