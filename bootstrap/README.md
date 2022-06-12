@@ -57,4 +57,6 @@ So for example I'm going to copy this component and paste inside of my html file
 {% endblock %}
 ```
 As you can see basically it creates a netbar so you can ass like this very easy all the bootstrap components that you want.
-![image](https://user-images.githubusercontent.com/66882463/173211180-7f18de84-0fe0-4b8d-9d07-1098f925fb6e.png)
+![image](https://user-images.githubusercontent.com/66882463/173211180-7f18de84-0fe0-4b8d-9d07-1098f925fb6e.png)<br />
+Take a look basically bootstrap has this type of blocks.<br />
+![image](https://user-images.githubusercontent.com/66882463/173211197-0cea4b65-4ab2-42a8-91b9-e7d634b38b83.png)
