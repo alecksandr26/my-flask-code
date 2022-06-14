@@ -219,4 +219,40 @@ def index():
     
     return render_template('home.html')
 ```
+Then lets create our form I create two versions, becasue the wtf module adds another base.html with some macros that we can use to import some components, I decided to add the two methods.
+```
+{% extends 'base.html' %}
+
+<!-- Includes the quick_form -->
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block body %}
+{{ super() }}
+<!-- This is the block of code of container -->
+<h2>First way</h2>
+<div class="container">
+    <!-- This is the way how we can create a simple form  -->
+    <form action="{{ url_for('login') }}" method='POST'>
+        {{ login_form.username.label }}
+        {{ login_form.username }}
+        <br />
+        {{ login_form.password.label }}
+        {{ login_form.password }}
+        <br />
+        {{ login_form.submit }}
+        
+    </form>
+</div>
+
+<h2>Second way</h2>
+
+<div class="container">
+    <!-- This is the way how we can create a simple form  -->
+    <form action="{{ url_for('login') }}" method='POST'>
+      {{ wtf.quick_form(login_form) }}
+    </form>
+</div>
+
+{% endblock %}
+```
 
