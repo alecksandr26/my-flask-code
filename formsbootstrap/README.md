@@ -301,4 +301,6 @@ def home():
     
     return render_template('home.html')
 ```
-Now you can check all the code I finish but with that we already create a form with bootstrap.
+Now you can check all the code I finish but with that we already create a form with bootstrap.<br />
+![image](https://user-images.githubusercontent.com/66882463/173660658-86f66589-91aa-4f5e-b380-4c49c4eb7ff7.png)
+
