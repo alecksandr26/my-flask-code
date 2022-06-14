@@ -2,7 +2,7 @@
 We are going to create a simple login 
 """
 
-from flask import Flask, request, make_response, session, redirect, render_template, url_for
+from flask import Flask, request, make_response, session, redirect, render_template, url_for, flash
 from flask_bootstrap import Bootstrap
 
 # import the flask class
@@ -34,6 +34,10 @@ def login():
         username = contex['login_form'].username.data
         password = contex['login_form'].password.data
         session['user'] = { 'username' : username, 'password' : password }
+
+        # We can generate messages via flash function it generate good functions 
+        flash('User created successfully')
+        
         return redirect('/')
 
     return render_template('login.html', **contex)

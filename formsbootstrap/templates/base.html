@@ -9,6 +9,20 @@
 {% block body %}
 <h1>Example of a loing</h1>
 
+<!-- Iterate all the messages -->
+{% for message in get_flashed_messages() %}
+<div class="alert alert-success alert-dismissible">
+    <!-- &times; == x symbol -->
+    <button type="button" data-dismiss="alert" class="close">&times;</button>
+    {{ message }}
+</div>
+{% endfor %}
+
+<!-- we need to add that  -->
+{% block scripts %}
+{{ super() }}
+{% endblock %}
+
 {% endblock %}
 
 
