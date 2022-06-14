@@ -14,3 +14,28 @@ app.config['SECRET_KEY'] = 'mykey'
 def index():
     return 'hello'
 ```
+Now We need to include an object called session in from the flask module where we are going to store the data, and its very easy to use it.
+```
+from flask import Flask, request, session, make_response, redirect
+
+app = Flask(__name__)
+
+# To have a secret key
+app.config['SECRET_KEY'] = 'mykey'
+
+@app.route('/hello')
+def hello():
+    if session['user_ip']:
+        return f"Hello {session.get('user_ip')}"
+    else:
+        return 'we need an ip'
+    
+@app.route('/')
+def index():
+    response = make_response(redirect('/hello'))
+    
+    # Store my value 
+    session['user_ip'] = request.remote_addr
+    
+    return response
+```
