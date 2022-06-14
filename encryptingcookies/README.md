@@ -25,18 +25,20 @@ app.config['SECRET_KEY'] = 'mykey'
 
 @app.route('/hello')
 def hello():
-    if session['user_ip']:
-        return f"Hello {session.get('user_ip')}"
-    else:
-        return 'we need an ip'
+    # Try to fecth the data
+    if not session.get('user_ip'):
+        return 'We need an ip'
     
+    return f"Hello {session.get('user_ip')}"
+    
+
 @app.route('/')
 def index():
     response = make_response(redirect('/hello'))
     
     # Store my value 
     session['user_ip'] = request.remote_addr
-    
+
     return response
 ```
 Now if you want to get the data you are not going to be able because is encrypted.<br />
