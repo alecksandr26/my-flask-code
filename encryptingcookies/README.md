@@ -4,7 +4,11 @@ The first thing that we need to do is to create our secret key you only need to 
 ```
 from flask import Flask
 
+
 app = Flask(__name__)
+
+# To have a secret key
+app.config['SECRET_KEY'] = 'mykey'
 
 @app.route('/')
 def index():
