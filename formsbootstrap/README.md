@@ -255,4 +255,49 @@ Then lets create our form I create two versions, becasue the wtf module adds ano
 
 {% endblock %}
 ```
+Obviously I modify the flask code a little bit to be able to pass to jinja2 the data.
+```
+"""
+We are going to create a simple login 
+"""
 
+from flask import Flask, request, make_response, session, redirect, render_template, url_for
+from flask_bootstrap import Bootstrap
+
+# import the flask class
+from flask_wtf import FlaskForm
+# The reference functions
+from wtforms.fields import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired
+
+app = Flask(__name__)
+bootstrap  = Bootstrap(app)
+
+app.config["SECRET_KEY"] = 'mykey'
+
+class LoginForm(FlaskForm):
+    username = StringField("User name: ", validators = [DataRequired()])
+    password = PasswordField("User password", validators = [DataRequired()])
+    submit = SubmitField('Send')
+
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+    if request.method == "POST":
+        pass
+
+    # I create a contex to pass all the argumetns
+    contex = {
+        'url_for' : url_for,
+        'login_form' : LoginForm() # Creates an instance
+    }
+    
+    return render_template('login.html', **contex)
+    
+@app.route('/')
+def home():
+    if not session.get('user'):
+        response = make_response(redirect('/login'))
+        return response
+    
+    return render_template('home.html')
+```
