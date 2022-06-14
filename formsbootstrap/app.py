@@ -29,20 +29,20 @@ def login():
         'login_form' : LoginForm() # Creates an instance
     }
 
-    if contex['login_form'].validate_on_submit():
+    if request.method == "POST" or contex['login_form'].validate_on_submit():
         # Get the data
         username = contex['login_form'].username.data
         password = contex['login_form'].password.data
         session['user'] = { 'username' : username, 'password' : password }
-        return make_response(redirect('/'))
-    
+        return redirect('/')
+
     return render_template('login.html', **contex)
 
 
 @app.route('/', methods = ['GET'])
 def home():
     if not session.get('user'):
-        return  make_response(redirect('/login'))
+        return  redirect('/login')
 
     contex = {
         'user' : session.get('user')
