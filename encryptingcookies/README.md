@@ -39,3 +39,7 @@ def index():
     
     return response
 ```
+Now if you want to get the data you are not going to be able because is encrypted.<br />
+![image](https://user-images.githubusercontent.com/66882463/173627158-c966eab4-f995-4c53-9d9f-ec33f91bad93.png)
+
+
