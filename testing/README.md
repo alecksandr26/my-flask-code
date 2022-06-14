@@ -88,4 +88,4 @@ def home():
     response = make_response(redirect('/hello'))
     return response
 ```
-Then lets start making more tests.
+So yeah we can create a lot of tests you should watch and read the documentation.
