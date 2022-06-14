@@ -301,3 +301,4 @@ def home():
     
     return render_template('home.html')
 ```
+Now you can check all the code I finish but with that we already create a form with bootstrap.
