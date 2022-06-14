@@ -142,3 +142,6 @@ class LoginForm(FlaskForm):
 def index():
     return 'hello'
 ```
+# Creating the form in bootstrap
+We have ready the logic in flask but now we are going to create the form in bootstrap
+
