@@ -58,5 +58,34 @@ class MainTest(TestCase):
         self.assertIsNotNone(curren_app)
 ```
 To add a test as you can see we only need to put a function with his name stats with `test`, now If I run all the tests somthing like this should apears.<br />
-![image](https://user-images.githubusercontent.com/66882463/173678337-c2835e18-7776-45af-90b8-1c8871f2c736.png)
+![image](https://user-images.githubusercontent.com/66882463/173678337-c2835e18-7776-45af-90b8-1c8871f2c736.png)<br />
+Lets test a little bit more, for exmaple I modify our app to make a redirect.
+```
+from flask import Flask, request, redirect, session, make_response
+import unittest
 
+
+app = Flask(__name__)
+app.config['SECRET_KEY'] = "mykey"
+
+@app.cli.command()
+def test():
+    tests = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner().run(tests)
+
+
+@app.route('/hello')
+def hello():
+    if session.get('user_ip'):
+        return f"hello {session.get('user_ip')}"
+    return f"We need an ip"
+    
+
+@app.route('/')
+def home():
+    user_ip = request.remote_addr
+    session['user_ip'] = user_ip
+    response = make_response(redirect('/hello'))
+    return response
+```
+Then lets start making more tests.
