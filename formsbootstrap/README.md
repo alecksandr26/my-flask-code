@@ -112,4 +112,33 @@ class LoginForm(FlaskForm):
 def index():
     return 'hello'
 ```
+To finish with this form we should add `submit` button, to add that thing to our form we only need to include that field from the fields module liket this.
+```
+"""
+We are going to create a simple login 
+"""
 
+from flask import Flask, request, make_response, session, redirect, render_template
+from flask_bootstrap import Bootstrap
+
+# import the flask class
+from flask_wtf import FlaskForm
+# The reference functions
+from wtforms.fields import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired
+
+app = Flask(__name__)
+bootstrap  = Bootstrap(app)
+
+app.config["SECRET_KEY"] = 'mykey'
+
+class LoginForm(FlaskForm):
+    username = StringField("User name", validators = [DataRequired()])
+    password = PasswordField("User password", validators = [DataRequired()])
+    submit = SubmitField('Send')
+    
+
+@app.route('/')
+def index():
+    return 'hello'
+```
