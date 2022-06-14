@@ -143,5 +143,80 @@ def index():
     return 'hello'
 ```
 # Creating the form in bootstrap
-We have ready the logic in flask but now we are going to create the form in bootstrap
+We have ready the logic in flask but now we are going to create the form in bootstrap, I create my base tample like this.
+```
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+{{ super() }}
+<title>Example of login</title>
+
+{% endblock %}
+
+{% block body %}
+<h1>Example of a loing</h1>
+
+{% endblock %}
+```
+After that I create another template that are an extesion of the base template, inside of this tampleate I import the bootstrap login component.
+```
+{% extends 'base.html' %}
+
+{% block body %}
+{{ super() }}
+
+<p>Welcome to the loing page</p>
+
+{% endblock %}
+```
+And also I create a home template like this.
+```
+{% extends 'base.html' %}
+
+
+{% block body %}
+{{ super() }}
+
+<p>Welcome to home</p>
+
+{% endblock %}
+```
+And I modify a little bit the flask code I add a login path like this.
+```
+"""
+We are going to create a simple login 
+"""
+
+from flask import Flask, request, make_response, session, redirect, render_template
+from flask_bootstrap import Bootstrap
+
+# import the flask class
+from flask_wtf import FlaskForm
+# The reference functions
+from wtforms.fields import StringField, PasswordField, SubmitField
+from wtforms.validators import DataRequired
+
+app = Flask(__name__)
+bootstrap  = Bootstrap(app)
+
+app.config["SECRET_KEY"] = 'mykey'
+
+class LoginForm(FlaskForm):
+    username = StringField("User name", validators = [DataRequired()])
+    password = PasswordField("User password", validators = [DataRequired()])
+    submit = SubmitField('Send')
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+    
+
+@app.route('/')
+def index():
+    if not session.get('user'):
+        response = make_response(redirect('/login'))
+        return response
+    
+    return render_template('home.html')
+```
 
