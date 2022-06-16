@@ -9,3 +9,7 @@ This is repository of my flask code.
 7. [Encrypting data](./encryptingcookies)
 8. [Flask wtf](./formsbootstrap)
 9. [Testing](./testing)
+# A simple project example
+This is simple project where I use all the things learned. <br />
+[Project](./project)
+
