@@ -1,0 +1,21 @@
+<!-- This is the login html file so lets improt -->
+{% extends 'base.html' %}
+
+<!-- Includes the quick_form -->
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+{{ super() }}
+Login
+{% endblock %}
+
+{% block body %}
+{{ super() }}
+
+<div class="container">
+    <from action="{{ url_for('login') }}" method="POST">
+        {{ wtf.quick_form(login_form) }}
+    </from>
+</div>
+
+{% endblock %}
