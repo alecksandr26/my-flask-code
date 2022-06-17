@@ -1,10 +1,11 @@
 from flask_testing import TestCase
 from flask import current_app
-from app import app
+from main import app
 
 
-
-
+"""
+To run all the tests of the application
+"""
 
 class MainTest(TestCase):
     def create_app(self):
@@ -13,5 +14,5 @@ class MainTest(TestCase):
         return app
 
     def test_app_exists(self):
-        self.assertIsNotNone(curren_app)
+        self.assertIsNotNone(current_app)
         
