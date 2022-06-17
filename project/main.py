@@ -13,9 +13,8 @@ from flask import render_template, session, redirect, url_for
 # Creates the app flask
 app = create_app()
 
-
 # This is the route of loggin 
-@app.route('/login')
+@app.route('/login', methods = ['GET', 'POST'])
 def login():
     contex = {
         'url_for' : url_for,
