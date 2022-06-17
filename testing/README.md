@@ -55,7 +55,7 @@ class MainTest(TestCase):
         return app
 
     def test_app_exists(self):
-        self.assertIsNotNone(curren_app)
+        self.assertIsNotNone(current_app)
 ```
 To add a test as you can see we only need to put a function with his name stats with `test`, now If I run all the tests somthing like this should apears.<br />
 ![image](https://user-images.githubusercontent.com/66882463/173678337-c2835e18-7776-45af-90b8-1c8871f2c736.png)<br />
