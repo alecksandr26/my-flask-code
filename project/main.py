@@ -9,18 +9,18 @@ from app.forms import LoginForm
 
 from flask import render_template, session, redirect, url_for
 
+# For Testing purpuse
+import unittest
+
 
 # Creates the app flask
 app = create_app()
 
-# This is the route of loggin 
-@app.route('/login', methods = ['GET', 'POST'])
-def login():
-    contex = {
-        'url_for' : url_for,
-        'login_form' : LoginForm() # Create the instance
-    }
-    return render_template('login.html', **contex)
+# The rotue for testing
+@app.cli.command()
+def test():
+    tests = unittest.TestLoader().discover('tests')
+    unittest.TextTestRunner().run(tests)
 
 
 @app.route('/')

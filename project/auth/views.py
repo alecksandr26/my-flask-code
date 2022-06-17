@@ -6,7 +6,6 @@ Import the auth Blueprint
 from . import auth
 from app.forms import LoginForm
 
-
 # This is the route of loggin from the blueprint auth
 @auth.route('/login', methods = ['GET', 'POST'])
 def login():
