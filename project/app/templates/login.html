@@ -12,8 +12,13 @@ Login
 {% block body %}
 {{ super() }}
 
+<!-- Printing the error -->
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+
 <div class="container">
-    <from action="{{ url_for('login') }}" method="POST">
+    <from action="{{ url_for('auth.login') }}" method="POST">
         {{ wtf.quick_form(login_form) }}
     </from>
 </div>
