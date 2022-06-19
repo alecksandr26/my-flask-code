@@ -1,5 +1,5 @@
 # Simple Todo list
-Its a simple project where I used all the learned things from flask, jinja2 and sqlalchemy.
+Its a simple project where I used all the learned things from flask, jinja2 and gcloud firestore service.
 ## Create the virtual env and build
 When you create the virtualenv you will need to install the requirements, so just run.
 ```
