@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+<!-- Includes the quick_form -->
+{% import 'bootstrap/wtf.html' as wtf %}
+
 {% block title %}
 {{ super() }}
 Home
@@ -9,6 +12,33 @@ Home
 {% block body %}
 {{ super() }}
 
+
+<!-- Nav bar -->
+<nav>
+    <ul>
+        <li><a href="{{ url_for('auth.logout') }}">LogOut</a></li>
+    </ul>
+</nav>
 <p>Hello {{ username }}</p>
+
+<div class="container">
+    <h2>Create a new todo</h2>
+    <form method="POST" action="{{ url_for('home') }}">
+        {{ wtf.quick_form(todo_form) }}        
+    </form>
+</div>
+
+<h1>Todos:</h1>
+<ul>
+{% for todo in todos %}
+<li>
+    <p>{{ todo.to_dict().description }}</p>
+    <form method="POST" action="{{ url_for('delete', todo_id = todo.id) }}">
+        {{ wtf.quick_form(delete_todo_form) }}
+    </form>
+</li>
+{% endfor %}
+</ul>
+
 {% endblock %}
 

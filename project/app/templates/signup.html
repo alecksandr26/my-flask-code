@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+<!-- Includes the quick_form -->
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block title %}
+{{ super() }}
+SignUp
+{% endblock %}
+
+{% block content %}
+
+<h1>SignUp</h1>
+
+<!-- Printing the error -->
+{% if error %}
+<p>{{ error }}</p>
+{% endif %}
+
+<div class="container">
+    <from action="{{ url_for('auth.signup') }}" method="POST">
+        {{ wtf.quick_form(signup_form) }}
+    </from>
+</div>
+<p>Do you already have an account ?</p>
+<a href="{{ url_for('auth.login') }}">Login</a>
+
+
+{% endblock %}
