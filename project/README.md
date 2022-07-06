@@ -12,3 +12,20 @@ You will need to create an `.env` inside of this file you will need to put the p
 ```
 KEY_JSON="path_to_your_key.json"
 ```
+## Deploying a flask project
+To deploy a simple flask app you can use app engine from gcloud, so firstly we are going to change our poject to a production project basically we only need to change the name just run these commands.
+```
+$ gcloud config set project project-name-production
+```
+You can check in what project you are just running this command
+```
+$ gcloud config list
+```
+After that you need to create inside of the project directory a `app.yaml` file where you are going to put inside something like this.
+```
+runtime: python37
+```
+Yeah, now lets make deploy of our app just running this command.
+```
+$ gcloud app deploy app.yaml
+```
