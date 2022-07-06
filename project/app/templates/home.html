@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
 
+{% block title %}
+{{ super() }}
+Home
+{% endblock %}
+
+
 {% block body %}
 {{ super() }}
 
-<p>Hello</p>
+<p>Hello {{ username }}</p>
 {% endblock %}
 

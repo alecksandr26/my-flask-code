@@ -23,6 +23,8 @@ import unittest
 # Import the firestore_services
 from app.firestore_service import get_users, get_todos_from_user
 
+# To make sure that the user is logged
+from flask_login import login_required, current_user
 
 # Creates the app flask
 app = create_app()
@@ -35,20 +37,19 @@ def test():
 
 
 @app.route('/', methods = ['GET'])
+@login_required # Adding this decorator to make sure that we are logged
 def home():
-    # If there is not user logged redirect to login
-    if not session.get('user'):
-        return redirect(url_for('auth.login'))
-    
-    # Get the users from the session
-    username = session.get('user')['username']
-
     # Create a contex
     contex = {
-        'todos' : get_todos_from_user(user_id = username),
-        'username' : username
+        'todos' : get_todos_from_user(user_id = current_user.id),
+        'username' : current_user.id
     }
     
     return render_template('home.html', **contex)
+
+
+
+
+
 
 
